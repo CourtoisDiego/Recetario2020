@@ -1,0 +1,44 @@
+.bg{
+    /*background-color: #17202A;*/
+    background-image: url('./bgp3.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position:top;
+    height: 100vh;
+}
+
+.bg h1{
+    top:20%;
+    position: relative;
+    color:black;
+    text-shadow:0px 4px 4px #F1C40F;
+    font-weight: bold;
+    
+}
+
+.f{
+    top: 30%;
+    position: relative;
+    /*background:	rgb(105,105,105,0.8);*/
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+    border-radius: 20px;
+}
+.f .btn{
+    border-radius: 20px;
+    width: 10em;
+    background-color: #F1C40F;
+    border-color: #F1C40F;
+}
+.f .campos{
+    padding: 10px;
+    border-radius: 20px;
+    width: 18em;
+    border-color: #F1C40F;
+    
+}
+.f a {
+    color: black;
+    font-weight: bold;
+}
