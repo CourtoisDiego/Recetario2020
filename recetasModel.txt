@@ -1,0 +1,13 @@
+{
+    _id,
+    usuario{
+        email,
+        _id
+    },
+    nombre,
+    descripcion,
+    ingredientes,
+    pasos,
+    dificultad,
+    fecha
+}

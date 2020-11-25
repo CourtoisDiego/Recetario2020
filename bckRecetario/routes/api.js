@@ -23,9 +23,14 @@ passport.use(
 const jwtAuthMiddleware = passport.authenticate('jwt', {session:false});
 
 let seguridadRoutes = require('./api/seguridad');
+let recetasRoutes  = require('./api/recetas');
+let usuariosRoutes = require('./api/usuarios');
+
 
 
 router.use('/seguridad',seguridadRoutes);
+router.use('/recetas',jwtAuthMiddleware,recetasRoutes);
+router.use('/usuarios',jwtAuthMiddleware,usuariosRoutes);
 
 
 
