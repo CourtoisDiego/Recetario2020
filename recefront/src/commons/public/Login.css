@@ -1,6 +1,6 @@
 .bg{
     /*background-color: #17202A;*/
-    background-image: url('../src/commons/public/img/bgp3.jpg');
+    background-image: url('./img/bgp3.jpg');
     background-size: cover;
     background-attachment: fixed;
     background-position:top;
