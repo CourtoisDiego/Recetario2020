@@ -1,0 +1,17 @@
+.header{
+    position: fixed;
+    top:0;
+    width:100%;
+    box-sizing: border-box;
+    
+   
+    background-color: #F1C40F;
+    color:black;
+  }
+  .header h1{
+    box-sizing: border-box;
+    padding:0.5em 1em;
+    margin:0px;
+    text-align:left;
+    font-size: 30px;
+  }

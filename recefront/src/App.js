@@ -7,6 +7,9 @@ import { pageTransitions as transition, mapGlideStyles as mapStyles } from './ut
 
 import Login from '../src/commons/public/login'
 import Registro from './commons/public/registro'
+import Home from './commons/private/home'
+import NewReceta from './commons/private/Newreceta'
+import Usuario from './commons/private/usuario'
 
 function App() {
   return (
@@ -18,8 +21,12 @@ function App() {
           mapStyles={mapStyles}
           className="switch-wrapper"
         >
+
           <Route path="/" exact component={Login} />
-          <Route path="/registro" exact component={Registro} />
+          <Route path="/registro" exact component={Home} />
+          <Route path="/home" exact component={Home} />
+          <Route path="/nuevaReceta" exact component={NewReceta} />
+          <Route path="/usuario" exact component={Usuario} />
         </AnimatedSwitch>
       </section>
     </Router>
