@@ -43,7 +43,7 @@ const  Login=()=>{
       <br></br>
       <br></br>
 
-      <Button variant="warning" className="btn"  onClick={onLogin}>Ingresar</Button>
+      <Button variant="warning" className="btn"  onClick={onLogin, (e) => { setRedirect("/home") } }>Ingresar</Button>
 
       <br></br>
       <br></br>
