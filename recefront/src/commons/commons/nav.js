@@ -18,7 +18,7 @@ const Nav = ()=>{
             <nav>
                 <ul >
                     <li onClick={(e) => { setRedirect("/home") } }><FontAwesomeIcon icon={faHome} /></li>
-                    <li onClick={(e) => { setRedirect("/usuario") } }><FontAwesomeIcon icon={faSearch} /></li>
+                    <li onClick={(e) => { setRedirect("/buscar") } }><FontAwesomeIcon icon={faSearch} /></li>
                     <li onClick={(e) => { setRedirect("/nuevaReceta") } } className="medio"><FontAwesomeIcon icon={faPlusCircle}/></li>
                     <li onClick={(e) => { setRedirect("/usuario") } }><FontAwesomeIcon icon={faUser} /></li>
 

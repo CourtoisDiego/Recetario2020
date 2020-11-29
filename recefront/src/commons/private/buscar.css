@@ -1,0 +1,21 @@
+.cont{
+    
+    background-color: #212121;
+    z-index: 10;
+    position: fixed;
+    width: 100%;
+    padding-bottom: 5px;
+    align-self: center;
+}
+.txtbuscar{
+    height: 40px;
+    background-color: white;
+    border-radius: 20px;
+    margin-top:50px;
+    align-self: center;
+    width: 18em;
+    border-color: #F1C40F;
+    margin-left: 20px;
+    
+    z-index: 1000;
+}

@@ -7,6 +7,7 @@ const Usuario = ()=>{
             <Perfil></Perfil>
             <GetRecetas></GetRecetas>
             
+            
         </Page>
     );
 }

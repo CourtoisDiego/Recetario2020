@@ -10,6 +10,7 @@ import Registro from './commons/public/registro'
 import Home from './commons/private/home'
 import NewReceta from './commons/private/Newreceta'
 import Usuario from './commons/private/usuario'
+import Buscar from './commons/private/buscar'
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/home" exact component={Home} />
           <Route path="/nuevaReceta" exact component={NewReceta} />
           <Route path="/usuario" exact component={Usuario} />
+          <Route path="/buscar" exact component={Buscar} />
         </AnimatedSwitch>
       </section>
     </Router>
