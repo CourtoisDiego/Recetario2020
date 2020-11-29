@@ -1,32 +1,8 @@
-.productoList{
-    padding: 20px;
-    margin-top: 60px;
-    position: relative;
-    display:flex;
-  flex-wrap:wrap;
-  list-style: none;
-  flex:1;
-  overflow-y: scroll;
-  justify-content: center;
-   
-    
-  }
-  .productoList li{
-    box-sizing: border-box;
-    padding:0.5em;
-    margin:10px;
-    
-    flex-basis: 95%;
-    min-height: 120px;
-    background-color:#fff;
-    border:1px solid #333;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-    flex-direction: column;
-  }
+
   
-  .productoList li span{
+  
+  
+  /*.productoList li span{
     display:flex;
     height: 50px;
     width: 80px;
@@ -36,4 +12,4 @@
     box-shadow: 1px 1px 3px #000;
     margin:0.5em;
   
-  }
+  }*/

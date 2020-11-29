@@ -1,5 +1,6 @@
 footer{
-    background-color: #F1C40F;
+    background-color: #212121;
+    
     position:fixed;
     bottom:0px;
     left: 0px;
@@ -17,18 +18,15 @@ footer nav ul {
     align-items: center;
     
   }
-  .medio{
-    /*
-    border-left: solid 1px black;
-    border-right: solid 1px black;*/
-  }
+  
   footer nav ul li {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     width:100%;
-    
-    font-size: 28px;
+    color:#FBC02D;
+    font-weight: lighter;
+    font-size: 30px;
     padding: 10px;
   }

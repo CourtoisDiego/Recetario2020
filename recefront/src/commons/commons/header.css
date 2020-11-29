@@ -3,10 +3,10 @@
     top:0;
     width:100%;
     box-sizing: border-box;
-    
-   
-    background-color: #F1C40F;
-    color:black;
+    left: 0;
+     z-index: 1000;
+    background-color: #212121;
+    color:#FBC02D;
   }
   .header h1{
     box-sizing: border-box;

@@ -1,0 +1,53 @@
+.productoList{
+    padding: 20px;
+    margin: 30px auto;
+    display: block;
+    flex-wrap: wrap;
+    list-style: none;
+    flex: 1 1;
+    justify-content: center;
+    width: 100%;
+     
+      
+    }
+    .productoList li{
+      padding:0.5em;
+      margin: 10px;
+      border-radius: 20px;
+      width: 100%;
+      min-height: 120px;
+      background-color:#fff;
+      border:1px solid #333;
+      display:block;
+      
+     
+    }
+    .productoList li img{
+      height: 90px;
+      border-radius: 30%;
+      position: relative;
+      float: left;
+      
+    }
+    .productoList li .descripcion{
+      
+      font-weight: lighter;
+      font-size: 12px;
+    }
+    .productoList li .nombre{
+      font-weight: bold;
+      position: relative;
+      top: 0;
+      right: 15px;
+      width: 100%;
+    }
+    .productoList li .difi{
+      background-color: #8BC34A;
+      position: relative;
+      width: 30%;
+      border-radius: 20px;
+      margin: auto;
+      float: right;
+      top: 27px;
+      
+    }

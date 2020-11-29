@@ -1,12 +1,9 @@
 import Page from '../commons/page'
-
+import GetRecetas from '../private/getRecetas'
 const Usuario = ()=>{
     return (
         <Page headding="Usuario" footer="true">
-            <br/>
-            <br/>
-            <br/>
-            <h1>Tal</h1>
+            <GetRecetas></GetRecetas>
             
         </Page>
     );

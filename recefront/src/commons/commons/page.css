@@ -1,9 +1,16 @@
 .page{
     height: 100vh;
-    background-color:#f1f1f1;
+    /*background-color:#f1f1f1;*/
+    background-color: #212121;
+
+    box-sizing: border-box;
+    padding:1em;
+    overflow:auto;
 }
 .content {
     display:flex;
     flex-direction: column;
+    overflow:auto;
+    width: 100%;
   }
   
