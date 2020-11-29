@@ -1,0 +1,42 @@
+.viewPerfil{
+    padding: 20px;
+    margin-top: 30px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    flex-wrap: wrap;
+    list-style: none;
+    flex: 1 1;
+    width: 100%;
+     
+      
+    }
+
+    .viewPerfil li .Nombre{
+        left:20px;
+        text-align: left;
+        color:white;
+        position: relative;
+        top: 10px;
+    }
+    .viewPerfil li .Usuario{
+        top: 10px;
+        left:20px;
+        text-align: left;
+        color: white;
+        position: relative;
+    }
+    .viewPerfil li .Pais{
+        left:20px;
+        text-align: left;
+        color:white;
+        position: relative;
+        top: 10px;
+    }
+ 
+    .viewPerfil li img{
+      height: 90px;
+      border-radius: 50%;
+      float: left;
+      position: relative;
+    }
+   
