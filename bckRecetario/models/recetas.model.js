@@ -14,7 +14,7 @@ class RecetasModel{
         throw(ex);
       });
     }
-
+//Devuelve todas las recetas
     async getAll(){
       try {
         let rslts = await this.collection.find({}).toArray();
@@ -23,7 +23,7 @@ class RecetasModel{
         throw(ex);
       }
     }
-
+//Busca recetas por nombre
     async getByName(name){
       try{
         
@@ -34,7 +34,7 @@ class RecetasModel{
         throw(ex);
       }
     }
-
+//Busca las recetas por usuario
     async getByUser(_id){
       try{
         console.log(_id);
@@ -48,7 +48,7 @@ class RecetasModel{
     }
     }
   
-
+//Agrega receta
     async addOne({ _id,email, nombre,descripcion,fingre,fpasos,dificultad,date }) {
       try{
         
@@ -72,53 +72,7 @@ class RecetasModel{
       }
     }
 
-    async updateById(id, stock, sales){
-      try{
-        const _id = new ObjectID(id);
-        // UPDATE TABLE SET attr = val, attr = val where attr = val;
-        const updOps = {"$set":{"stock":stock, "sales":sales}};
-        let updDoc = await this.collection.findOneAndUpdate({ _id }, updOps, { returnOriginal:false});
-        return updDoc;
-      }catch(ex){
-        throw(ex);
-      }
-    }
-
-  async updateSales(id, stock, sales) {
-    try {
-      const _id = new ObjectID(id);
-      // UPDATE TABLE SET attr = val, attr = val where attr = val;
-      const updOps = { "$inc": { "stock": (stock*-1), "sales": sales } };
-      let updDoc = await this.collection.findOneAndUpdate({ _id }, updOps, { returnOriginal: false });
-      return updDoc;
-    } catch (ex) {
-      throw (ex);
-    }
-  }
-
-  async addCategory(id, category){
-    try {
-      let _category = category.toLowerCase();
-      const UpdOps = {"$push": {categories: _category}};
-      const _id = new ObjectID(id);
-      let updDoc = await this.collection.findOneAndUpdate({ _id }, UpdOps, { returnOriginal: false});
-      return updDoc;
-    }catch(ex){
-      throw(ex);
-    }
-  }
-
-  async addCategorySet(id, category) {
-    try {
-      let _category = category.toLowerCase();
-      const UpdOps = { "$addToSet": { categories: _category } };
-      const _id = new ObjectID(id);
-      let updDoc = await this.collection.findOneAndUpdate({ _id }, UpdOps, { returnOriginal: false });
-      return updDoc;
-    } catch (ex) {
-      throw (ex);
-    }
-  }
+   //Elimina
 
     async removeById(id) {
       try{

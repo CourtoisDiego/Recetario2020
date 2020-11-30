@@ -3,7 +3,7 @@ let router = express.Router();
 
 const UsuariosModelClass = require('../../models/usuarios.model');
 const mdbUsuariosModel = new UsuariosModelClass();
-
+//Obtiene todos los usuarios por nombre
 router.post('/AllByName',async(req,res)=>{
     try{
         let {nombre} = req.body;

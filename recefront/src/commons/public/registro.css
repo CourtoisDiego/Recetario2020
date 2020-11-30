@@ -1,0 +1,40 @@
+.regis{
+    margin-top: 30px;
+    padding:20px;
+    width: 100%;
+
+}
+
+.regis .label{
+    
+    margin: auto;
+    color:#F1C40F;
+    float:left;
+    position: relative;
+}
+
+.regis .formu{
+    padding: 10px;
+    border-radius: 20px;
+    width: 18em;
+    border-color: #F1C40F;
+    color:black;
+    height:auto;
+    
+}
+.regis option{
+    background-color: #F1C40F;
+    color:black;
+    border-bottom: 1px solid black;
+    width: 50px;
+    
+}
+
+
+
+.regis .btningre{
+    border-radius: 20px;
+    width: 10em;
+    background-color: #F1C40F;
+    border-color: #F1C40F;
+}

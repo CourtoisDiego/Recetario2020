@@ -3,7 +3,7 @@ let router = express.Router();
 
 const RecetasModelClass = require('../../models/recetas.model');
 const mdbRecetasModel = new RecetasModelClass();
-
+//Muestra todas las recetas
 router.get('/all', async (req, res)=>{
     try{
       const rslt = await mdbRecetasModel.getAll()
@@ -13,7 +13,7 @@ router.get('/all', async (req, res)=>{
       res.status(500).json({"msg":"Algo Paso Mal."});
     }
   });
-
+//Muestra todas las recetas de un usuario
   router.get('/allByUser',async(req,res)=>{
     try{
       let { _id }=req.user;
@@ -27,7 +27,7 @@ router.get('/all', async (req, res)=>{
     }
   });
 
-
+//Muestra recetas por nombre
   router.post('/allByName', async (req, res)=>{
   try{
     const { nombre } = req.body;
@@ -39,7 +39,7 @@ router.get('/all', async (req, res)=>{
     res.status(500).json({ "msg": "Algo Paso Mal." });
   }
 });
-
+//Nueva receta
 router.post('/new', async (req, res)=>{
     try{
         var today = new Date();
@@ -56,6 +56,7 @@ router.post('/new', async (req, res)=>{
       res.status(500).json({ "msg": "Algo Paso Mal." });
     }
   });
+  //Borra receta
   router.delete('/del/:id',async (req, res)=>{
     let {id} = req.params;
     try{

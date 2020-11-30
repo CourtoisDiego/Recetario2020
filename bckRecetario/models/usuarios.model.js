@@ -14,7 +14,7 @@ class UsuariosModel{
       });
     }
 
-
+//Busca usuario por nombre
     async getByName(name){
         try{
           let oneDoc = await this.collection.find({"nombre":{$regex: name, $options:"i"}}).toArray();
