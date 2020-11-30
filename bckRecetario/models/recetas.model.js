@@ -24,41 +24,37 @@ class RecetasModel{
       }
     }
 
-    async getByName(id){
+    async getByName(name){
       try{
-        const _id = new ObjectID(id);
-        let oneDoc = await this.collection.findOne({_id});
+        
+        
+        let oneDoc = await this.collection.find({"nombre":{$regex: name, $options:"i"}}).toArray();
         return oneDoc;
       }catch(ex){
         throw(ex);
       }
     }
-    async getByAttibutes(attributes){
-      try{
-        let docs = await this.collection.find(attributes).toArray();
-        return docs;
-      }catch(ex){
-        throw(ex);
-      }
-    }
-  // Proyecciones (conjunto especifico de datos del conjunto global)
-  // SELECT _id, sku, name, price from productos;
-  // {"_id":1,"sku":1, "name":1, "price":1}
-  async getByAttibutesProjected(attributes, projection) {
-    try {
-      let docs = await this.collection.find(attributes).project(projection).toArray();
-      return docs;
-    } catch (ex) {
-      throw (ex);
-    }
-  }
 
-    async addOne({ id,email, nombre,descripcion,fingre,fpasos,dificultad,date }) {
+    async getByUser(_id){
+      try{
+        console.log(_id);
+        const filter = 
+        {"usuario._id":ObjectID(_id)};
+        let oneDoc = await this.collection.find(filter).toArray();
+        return oneDoc;
+    }
+      catch(ex){
+        throw(ex);
+    }
+    }
+  
+
+    async addOne({ _id,email, nombre,descripcion,fingre,fpasos,dificultad,date }) {
       try{
         
         let newReceta = {
             'usuario':{
-                '_id': ObjectID(id),
+                '_id': ObjectID(_id),
                 'email':email
             },
            'nombre':nombre,

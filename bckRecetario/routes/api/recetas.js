@@ -14,11 +14,25 @@ router.get('/all', async (req, res)=>{
     }
   });
 
+  router.get('/allByUser',async(req,res)=>{
+    try{
+      let { _id }=req.user;
+      const rslt = await mdbRecetasModel.getByUser(_id);
+      res.status(200).json(rslt);
 
-  router.get('/one/:id', async (req, res)=>{
+    }
+    catch(ex){
+      console.log(ex);
+      res.status(500).json({ "msg": "Algo Paso Mal." });
+    }
+  });
+
+
+  router.post('/allByName', async (req, res)=>{
   try{
-    let { id } = req.params;
-    let oneDocument = await mdbRecetasModel.getById(id);
+    const { nombre } = req.body;
+    
+    let oneDocument = await mdbRecetasModel.getByName(nombre);
     res.status(200).json(oneDocument);
   } catch(ex){
     console.log(ex);
@@ -53,6 +67,7 @@ router.post('/new', async (req, res)=>{
     }
     
   });
+
 
 
 
