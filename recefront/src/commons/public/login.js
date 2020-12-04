@@ -2,7 +2,13 @@ import '../public/Login.css'
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
-import {Redirect,Link} from 'react-router-dom';
+import {Redirect,Link,useHistory, useLocation} from 'react-router-dom';
+import {useStateContext} from '../../utlts/Context';
+
+import axios from 'axios';
+
+
+import { LOGIN_FETCHING, LOGIN_FETCHING_FAILED, LOGIN_SUCCESS } from '../../utlts/store/reducers/auth.reducer';
 const  Login=()=>{
 
 
@@ -10,12 +16,18 @@ const  Login=()=>{
     email:'',
     password:''
   });
+  const [, dispatch] = useStateContext();
+  const location = useLocation();
+  const routeHistory = useHistory();
+  
 
   let [redirect, setRedirect] = useState("");
   if (redirect !==""){
     return (<Redirect to={redirect}></Redirect>);
   }
-
+  
+  
+ 
   const onChange = (e)=>{
     const {name,value} = e.target;
     setForm({
@@ -24,11 +36,24 @@ const  Login=()=>{
       [name]:value,
     });
   }
+  let { from } = location.state || { from: { pathname: "/usuario" } };
   const onLogin = (e) =>{
     const {email,password} = form;
     //ACA VA AXIOS
-    console.log(email);
-    console.log(password);
+    dispatch({ type: LOGIN_FETCHING });
+    axios.post(
+      '/api/seguridad/login',
+       {email, password}
+    ).then(({data})=>{
+      dispatch({type:LOGIN_SUCCESS, payload:data});
+      routeHistory.replace(from);
+    }).catch((err)=>{
+      dispatch({ type: LOGIN_FETCHING_FAILED });
+      console.log(err);
+      
+
+    })
+    
     
   }
   return(
@@ -43,12 +68,12 @@ const  Login=()=>{
       <br></br>
       <br></br>
 
-      <Button variant="warning" className="btn"  onClick={onLogin, (e) => { setRedirect("/home") } }>Ingresar</Button>
-
+      <Button variant="warning" className="btn"  onClick={onLogin }>Ingresar</Button>
+      <div className="error"></div>
       <br></br>
       <br></br>
       
-      <Link onClick={(e) => { setRedirect("/registro") } } className="a">Registrarme</Link>
+      <span onClick={(e) => { setRedirect("/registro") } } className="a">Registrarme</span>
       
     </form>
   </div>

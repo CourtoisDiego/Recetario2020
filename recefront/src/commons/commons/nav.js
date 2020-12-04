@@ -1,7 +1,7 @@
 //import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {useState} from 'react';
-import {Redirect,Link} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faHome,faPlusCircle, faUser,faSearch} from '@fortawesome/free-solid-svg-icons'
 import './nav.css'

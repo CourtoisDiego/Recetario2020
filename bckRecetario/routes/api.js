@@ -20,6 +20,10 @@ passport.use(
   )
 )
 
+const heartBeat = (req, res)=>{
+  res.status(200).json({ok:true});
+}
+
 const jwtAuthMiddleware = passport.authenticate('jwt', {session:false});
 
 let seguridadRoutes = require('./api/seguridad');
@@ -29,6 +33,7 @@ let usuariosRoutes = require('./api/usuarios');
 
 
 router.use('/seguridad',seguridadRoutes);
+router.get('/heartbeat', jwtAuthMiddleware, heartBeat);
 router.use('/recetas',jwtAuthMiddleware,recetasRoutes);
 router.use('/usuarios',jwtAuthMiddleware,usuariosRoutes);
 
