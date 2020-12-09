@@ -14,6 +14,42 @@ class RecetasModel{
         throw(ex);
       });
     }
+    async getFacet(page, items, search){
+      try{
+        const searchExp = new RegExp(search);
+        console.log(searchExp);
+        const filter = '';
+        // select * from productos where (sku like '%search%' or bane like '%search%');
+
+        let cursor = await this.collection.find(filter);
+        let total = await cursor.count();
+        cursor.skip((page-1) * items);
+        cursor.limit(items);
+        let rslt = await cursor.toArray();
+        return {total, rslt};
+      }catch(ex){
+        throw (ex);
+      }
+    }
+    //Recetas de usuario por id
+    async getFacetId(page, items, search,_id){
+      try{
+        const searchExp = new RegExp(search);
+        console.log(searchExp);
+        _id=ObjectID(_id);
+        const filter = {"usuario._id":ObjectID(_id)};
+        // select * from productos where (sku like '%search%' or bane like '%search%');
+
+        let cursor = await this.collection.find(filter);
+        let total = await cursor.count();
+        cursor.skip((page-1) * items);
+        cursor.limit(items);
+        let rslt = await cursor.toArray();
+        return {total, rslt};
+      }catch(ex){
+        throw (ex);
+      }
+    }
 //Devuelve todas las recetas
     async getAll(){
       try {

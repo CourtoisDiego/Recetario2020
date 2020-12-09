@@ -5,10 +5,11 @@ import {useState} from 'react';
 import {Redirect,Link,useHistory, useLocation} from 'react-router-dom';
 import {useStateContext} from '../../utlts/Context';
 
-import axios from 'axios';
+import {naxios as axios,setJWT} from '../../utlts/Axios';
 
 
 import { LOGIN_FETCHING, LOGIN_FETCHING_FAILED, LOGIN_SUCCESS } from '../../utlts/store/reducers/auth.reducer';
+
 const  Login=()=>{
 
 
@@ -40,12 +41,14 @@ const  Login=()=>{
   const onLogin = (e) =>{
     const {email,password} = form;
     //ACA VA AXIOS
+
     dispatch({ type: LOGIN_FETCHING });
     axios.post(
       '/api/seguridad/login',
        {email, password}
     ).then(({data})=>{
       dispatch({type:LOGIN_SUCCESS, payload:data});
+      setJWT(data.jwt);
       routeHistory.replace(from);
     }).catch((err)=>{
       dispatch({ type: LOGIN_FETCHING_FAILED });

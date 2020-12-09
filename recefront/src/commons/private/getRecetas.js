@@ -1,30 +1,72 @@
 import Pizza from '../public/img/screen-4.jpg'
 import '../private/getRecetas.css'
-const getRecetas =()=> {
-    const plato = [{"_id":1,"nombre":"Cereal con leche","Descripcion":"Literalmente cereal con leche","Dificultad":"Facil","Usuario":"Cr7"},
-    {"_id":2,"nombre":"Cereal con leche","Descripcion":"Literalmente cereal con leche","Dificultad":"Facil","Usuario":"Cr7"},
-    {"_id":3,"nombre":"Cereal con leche","Descripcion":"Literalmente cereal con leche","Dificultad":"Facil","Usuario":"Cr7"},
-    {"_id":4,"nombre":"Cereal con leche","Descripcion":"Literalmente cereal con leche","Dificultad":"Facil","Usuario":"Cr7"},
-    {"_id":5,"nombre":"Cereal con leche","Descripcion":"Literalmente cereal con leche","Dificultad":"Facil","Usuario":"Cr7"}];
+import {paxios} from '../../utlts/Axios'
+import {useStateContext} from '../../utlts/Context'
+import { useEffect } from 'react';
+import { RECE_LOADED, RECE_LOADING,RECE_ERROR, RECE_RELOAD } from '../../utlts/store/reducers/rece.reducer';
+import { useHistory } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroller';
+import { useRef } from 'react';
+
     
+const GetRecetas =({_id})=> {
+    
+    const [{rece}, dispatch] = useStateContext();
+    
+    const history = useHistory();
+    const listElements = rece.recetas.map((o)=>{
+    return (<div key={o._id} className="va"><img className="Pizza"src={Pizza}/>
+    <div className="nombre">{o.nombre}</div>
+    <div className="descripcion">{o.descripcion}</div>
+    <div className="difi">{o.dificultad}</div>
+    </div>);
+        })
+    const loadMore= function(){
+        if(!rece.fetching){
+            dispatch({type:RECE_RELOAD});
+            dispatch({type:RECE_LOADING});
+            
+            paxios.get(
+                (_id)?
+                `/api/recetas/user/facet/${rece.currentPage}/${rece.pageLimit}`:
+                `/api/recetas/facet/${rece.currentPage}/${rece.pageLimit})`
+                
+                )
+                .then(({data})=>{
+                 console.log(_id);   
+                dispatch({
+                  type: RECE_LOADED,
+                  payload: {
+                    recetas:data.rslt,
+                    total:data.total,
+                    currentPage:(rece.currentPage+1)
+                  }
+                });
+              })
+              .catch((ex)=>{
+                dispatch({ type: RECE_ERROR });
+                console.log(ex)
+            }); //end paxios
+        }
+    };
+const scrollParentRef = useRef();
+    return(
 
-        const listElements = plato.map((o)=>{
-        return (<li key={o._id}><img className="Pizza"src={Pizza}/>
-        <div className="nombre">{o.nombre}</div>
-        <div className="descripcion">{o.Descripcion}</div>
-
-        <div className="difi">{o.Dificultad}</div>
-
-        </li>);
-         })
-
-        return(
-
-            <ul className="productoList">
+        <section className="productoList" ref={scrollParentRef}>
+            <InfiniteScroll
+          pageStart={rece.currentPage}
+          hasMore={rece.hasMore}
+          getScrollParent={()=>scrollParentRef.current}
+          
+          loadMore={loadMore}
+          element="section"
+        >
             {listElements}
-            </ul>         
+        </InfiniteScroll>
+            
+        </section>         
         );
 
 }
 
-export default getRecetas;
+export default GetRecetas;

@@ -5,6 +5,7 @@ import {Redirect} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faHome,faPlusCircle, faUser,faSearch} from '@fortawesome/free-solid-svg-icons'
 import './nav.css'
+import {NavLink} from 'react-router-dom'
 
 
 const Nav = ()=>{
@@ -17,10 +18,11 @@ const Nav = ()=>{
         <footer>
             <nav>
                 <ul >
-                    <li onClick={(e) => { setRedirect("/home") } }><FontAwesomeIcon icon={faHome} /></li>
-                    <li onClick={(e) => { setRedirect("/buscar") } }><FontAwesomeIcon icon={faSearch} /></li>
-                    <li onClick={(e) => { setRedirect("/nuevaReceta") } } className="medio"><FontAwesomeIcon icon={faPlusCircle}/></li>
-                    <li onClick={(e) => { setRedirect("/usuario") } }><FontAwesomeIcon icon={faUser} /></li>
+                    <li><NavLink to="/" className="navlink"><FontAwesomeIcon icon={faHome} /></NavLink></li>
+                    <li><NavLink to="/buscar" className="navlink"><FontAwesomeIcon icon={faSearch} /></NavLink></li>
+                    <li><NavLink to="/nuevaReceta" className="navlink"><FontAwesomeIcon icon={faPlusCircle}/></NavLink></li>
+                    <li><NavLink to="/usuario" className="navlink"><FontAwesomeIcon icon={faUser} /></NavLink></li>
+                    
 
                 </ul>
             </nav>

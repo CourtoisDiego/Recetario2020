@@ -35,10 +35,10 @@ function App() {
 
             <Route path="/login" exact component={Login} />
             <Route path="/registro" exact component={Registro} />
-            <Route path="/" exact component={Home} />
-            <Route path="/nuevaReceta" exact component={NewReceta} />
-            <Route path="/usuario" exact component={Usuario} />
-            <Route path="/buscar" exact component={Buscar} />
+            <PrivateRoute path="/" exact component={Home} />
+            <PrivateRoute path="/nuevaReceta" exact component={NewReceta} />
+            <PrivateRoute path="/usuario" exact component={Usuario} />
+            <PrivateRoute path="/buscar" exact component={Buscar} />
             <Route path="*" component={NotFound}></Route>
           </AnimatedSwitch>
           </Splash>

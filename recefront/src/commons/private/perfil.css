@@ -11,21 +11,21 @@
       
     }
 
-    .viewPerfil li .Nombre{
+    .viewPerfil .li .Nombre{
         left:20px;
         text-align: left;
         color:white;
         position: relative;
         top: 10px;
     }
-    .viewPerfil li .Usuario{
+    .viewPerfil .li .Usuario{
         top: 10px;
         left:20px;
         text-align: left;
         color: white;
         position: relative;
     }
-    .viewPerfil li .Pais{
+    .viewPerfil .li .Pais{
         left:20px;
         text-align: left;
         color:white;
@@ -33,7 +33,7 @@
         top: 10px;
     }
  
-    .viewPerfil li img{
+    .viewPerfil .li img{
       height: 90px;
       border-radius: 50%;
       float: left;

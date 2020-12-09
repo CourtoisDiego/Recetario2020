@@ -3,6 +3,40 @@ let router = express.Router();
 
 const RecetasModelClass = require('../../models/recetas.model');
 const mdbRecetasModel = new RecetasModelClass();
+router.get('/facet/:page/:items', async (req, res) => {
+  try {
+    const {page, items} = req.params;
+    const rslt = await mdbRecetasModel.getFacet(Number(page), Number(items), '');
+    res.status(200).json(rslt);
+  } catch (ex) {
+    console.log(ex);
+    res.status(500).json({ "msg": "Algo Paso Mal." });
+  }
+});
+//Recetas por usuario
+router.get('/user/facet/:page/:items', async (req, res) => {
+  try {
+    const {_id} = req.user;
+    const {page, items} = req.params;
+    const rslt = await mdbRecetasModel.getFacetId(Number(page), Number(items), '',_id);
+    res.status(200).json(rslt);
+  } catch (ex) {
+    console.log(ex);
+    res.status(500).json({ "msg": "Algo Paso Mal." });
+  }
+});
+
+router.get('/facet/:page/:items/:search', async (req, res) => {
+  try {
+    const { page, items, search } = req.params;
+    const rslt = await mdbRecetasModel.getFacet(Number(page), Number(items), search);
+    res.status(200).json(rslt);
+  } catch (ex) {
+    console.log(ex);
+    res.status(500).json({ "msg": "Algo Paso Mal." });
+  }
+});
+
 //Muestra todas las recetas
 router.get('/all', async (req, res)=>{
     try{

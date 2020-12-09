@@ -13,7 +13,16 @@ class UsuariosModel{
         throw(ex);
       });
     }
-
+    //Por ID
+    async getById(id){
+      try{
+        const _id = new ObjectID(id);
+        let oneDoc = await this.collection.findOne({_id});
+        return oneDoc;
+      }catch(ex){
+        throw(ex);
+      }
+    }
 //Busca usuario por nombre
     async getByName(name){
         try{

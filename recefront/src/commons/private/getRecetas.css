@@ -10,7 +10,7 @@
      
       
     }
-    .productoList li{
+    .productoList .va{
       padding:0.5em;
       margin: 10px;
       border-radius: 20px;
@@ -22,26 +22,26 @@
       
      
     }
-    .productoList li img{
+    .productoList .va img{
       height: 90px;
       border-radius: 30%;
       position: relative;
       float: left;
       
     }
-    .productoList li .descripcion{
+    .productoList .va .descripcion{
       
       font-weight: lighter;
       font-size: 12px;
     }
-    .productoList li .nombre{
+    .productoList .va .nombre{
       font-weight: bold;
       position: relative;
       top: 0;
       right: 15px;
       width: 100%;
     }
-    .productoList li .difi{
+    .productoList .va .difi{
       background-color: #8BC34A;
       position: relative;
       width: 30%;

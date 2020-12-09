@@ -30,3 +30,10 @@ footer nav ul {
     font-size: 30px;
     padding: 10px;
   }
+.navlink{
+    color:#FBC02D;
+}
+a.navlink.active{
+  color:#FBC02D;
+
+}
