@@ -14,11 +14,11 @@ class RecetasModel{
         throw(ex);
       });
     }
-    async getFacet(page, items, search){
+   async getFacet(page, items, search){
       try{
         const searchExp = new RegExp(search);
         
-        const filter = '';
+        const filter = (search == '')?{}:{"$or":[{"nombre": {"$regex":searchExp,$options:"i" }} ]};
         // select * from productos where (sku like '%search%' or bane like '%search%');
 
         let cursor = await this.collection.find(filter);
@@ -31,23 +31,14 @@ class RecetasModel{
         throw (ex);
       }
     }
-    //Recetas de usuario por id
-    async getFacetId(page, items, search,_id){
-      try{
-        const searchExp = new RegExp(search);
-        
-        _id=ObjectID(_id);
-        const filter = {"usuario._id":_id};
-        // select * from productos where (sku like '%search%' or bane like '%search%');
 
-        let cursor = await this.collection.find(filter);
-        let total = await cursor.count();
-        cursor.skip((page-1) * items);
-        cursor.limit(items);
-        let rslt = await cursor.toArray();
-        return {total, rslt};
+    async GetById(id) {
+      try{
+        const _id = new ObjectID(id);
+        let rslt = await this.collection.findOne({_id});
+        return rslt;
       }catch(ex){
-        throw (ex);
+        throw(ex);
       }
     }
 //Devuelve todas las recetas
@@ -62,8 +53,6 @@ class RecetasModel{
 //Busca recetas por nombre
     async getByName(name){
       try{
-        
-        
         let oneDoc = await this.collection.find({"nombre":{$regex: name, $options:"i"}}).toArray();
         return oneDoc;
       }catch(ex){

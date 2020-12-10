@@ -13,18 +13,6 @@ router.get('/facet/:page/:items', async (req, res) => {
     res.status(500).json({ "msg": "Algo Paso Mal." });
   }
 });
-//Recetas por usuario
-router.get('/user/facet/:page/:items/:_id', async (req, res) => {
-  try {
-    const {_id} = req.params;
-    const {page, items} = req.params;
-    const rslt = await mdbRecetasModel.getFacetId(Number(page), Number(items), '',_id);
-    res.status(200).json(rslt);
-  } catch (ex) {
-    console.log(ex);
-    res.status(500).json({ "msg": "Algo Paso Mal." });
-  }
-});
 
 router.get('/facet/:page/:items/:search', async (req, res) => {
   try {
@@ -41,6 +29,17 @@ router.get('/facet/:page/:items/:search', async (req, res) => {
 router.get('/all', async (req, res)=>{
     try{
       const rslt = await mdbRecetasModel.getAll()
+      res.status(200).json(rslt);
+    }catch(ex){
+      console.log(ex);
+      res.status(500).json({"msg":"Algo Paso Mal."});
+    }
+  });
+
+  router.get('/one/:id', async (req, res)=>{
+    try{
+      let {id} = req.params;
+      const rslt = await mdbRecetasModel.GetById(id)
       res.status(200).json(rslt);
     }catch(ex){
       console.log(ex);
@@ -80,8 +79,8 @@ router.post('/new', async (req, res)=>{
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
       let{_id,email} = req.user;
       let {nombre,descripcion,ingredientes,pasos,dificultad} = req.body;
-      let fingre = ingredientes.split("|");
-      let fpasos = pasos.split("|");
+      let fingre = ingredientes.split("*");
+      let fpasos = pasos.split("*");
 
       var rslt = await mdbRecetasModel.addOne({ _id,email, nombre,descripcion,fingre,fpasos,dificultad,date }); // {sku: sku, name:name, price:price, stock:0}
       res.status(200).json(rslt);

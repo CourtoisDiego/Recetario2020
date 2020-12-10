@@ -3,7 +3,7 @@ import '../private/getRecetas.css'
 import {paxios} from '../../utlts/Axios'
 import {useStateContext} from '../../utlts/Context'
 import { useEffect } from 'react';
-import { RECE_LOADED, RECE_LOADING,RECE_ERROR, RECE_RELOAD } from '../../utlts/store/reducers/rece.reducer';
+import { RECE_LOADED, RECE_LOADING,RECE_ERROR } from '../../utlts/store/reducers/rece.reducer';
 import { useHistory } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroller';
 import { useRef } from 'react';
@@ -23,7 +23,7 @@ const GetRecetas =({_id})=> {
         })
     const loadMore= function(){
         if(!rece.fetching){
-            dispatch({type:RECE_RELOAD});
+            
             dispatch({type:RECE_LOADING});
             
             paxios.get(

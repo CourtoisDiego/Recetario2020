@@ -1,15 +1,82 @@
-
+.productoList{
+  display: block;
   
+  margin: -1em;
+  overflow: auto;
+  /*
   
-  
-  /*.productoList li span{
-    display:flex;
-    height: 50px;
-    width: 80px;
+  padding: 20px;
+    margin: 20px auto;
+    display: block;
+    flex-wrap: wrap;
+    list-style: none;
+    flex: 1 1;
     justify-content: center;
-    align-items: center;
-    border-radius:20%;
-    box-shadow: 1px 1px 3px #000;
-    margin:0.5em;
-  
-  }*/
+    width: 100%;
+    
+    */
+  }
+  .productoList .va{
+    
+    
+    padding:0.5em;
+      margin: 10px;
+      border-radius: 20px;
+      width: 100%;
+      min-height: 120px;
+      background-color:#fff;
+      border:1px solid #333;
+      display:block;
+    
+   
+  }
+  .productoList .va img{
+    height: 90px;
+    border-radius: 30%;
+    position: relative;
+    float: left;
+    
+  }
+  .productoList .va .descripcion{
+    
+    font-weight: lighter;
+    font-size: 12px;
+  }
+  .productoList .va .nombre{
+    font-weight: bold;
+    position: relative;
+    top: 0;
+    right: 15px;
+    width: 100%;
+  }
+  .productoList .va .difi{
+    background-color: #8BC34A;
+    position: relative;
+    width: 30%;
+    border-radius: 20px;
+    margin: auto;
+    float: right;
+    top: 27px;
+    
+  }
+  .productoList .con{
+    
+    width:100%;
+    background-color: #212121;
+    z-index: 10;
+    margin: auto;
+    align-content: center;
+  }
+  .productoList .con .txt{
+    height: 40px;
+    background-color: white;
+    border-radius: 20px;
+    
+    align-self: center;
+    width: 20em;
+    border-color: #F1C40F;
+    
+    
+    z-index: 1000;
+  }
+

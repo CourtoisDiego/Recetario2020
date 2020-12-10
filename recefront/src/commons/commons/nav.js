@@ -19,7 +19,6 @@ const Nav = ()=>{
             <nav>
                 <ul >
                     <li><NavLink to="/" className="navlink"><FontAwesomeIcon icon={faHome} /></NavLink></li>
-                    <li><NavLink to="/buscar" className="navlink"><FontAwesomeIcon icon={faSearch} /></NavLink></li>
                     <li><NavLink to="/nuevaReceta" className="navlink"><FontAwesomeIcon icon={faPlusCircle}/></NavLink></li>
                     <li><NavLink to="/usuario" className="navlink"><FontAwesomeIcon icon={faUser} /></NavLink></li>
                     

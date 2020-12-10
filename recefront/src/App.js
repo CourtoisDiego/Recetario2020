@@ -13,10 +13,10 @@ import { pageTransitions as transition, mapGlideStyles as mapStyles } from './ut
 import Login from '../src/commons/public/login'
 import Registro from './commons/public/registro'
 import Home from './commons/private/home'
-import NewReceta from './commons/private/Newreceta'
+import NewReceta from './commons/private/NReceta'
 import Usuario from './commons/private/usuario'
 import Buscar from './commons/private/buscar'
-
+import UnaReceta from './commons/private/UnaReceta'
 import NotFound from './commons/public/NotFound';
 
 
@@ -37,6 +37,7 @@ function App() {
             <Route path="/registro" exact component={Registro} />
             <PrivateRoute path="/" exact component={Home} />
             <PrivateRoute path="/nuevaReceta" exact component={NewReceta} />
+            <PrivateRoute path="/UnaReceta" exact component={UnaReceta} />
             <PrivateRoute path="/usuario" exact component={Usuario} />
             <PrivateRoute path="/buscar" exact component={Buscar} />
             <Route path="*" component={NotFound}></Route>
