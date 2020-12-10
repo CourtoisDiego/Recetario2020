@@ -5,3 +5,9 @@ li{
     color:#F1C40F;
     text-align: left;
 }
+img{
+    height: 90px;
+      border-radius: 50%;
+      float: left;
+      position: relative;
+}

@@ -7,7 +7,7 @@ import {Redirect} from 'react-router-dom';
 import {paxios} from '../../utlts/Axios';
 import {useHistory} from "react-router-dom";
 import './NReceta.css'
-
+import Gordon from '../public/img/gordon.jpg'
 const Newreceta = ()=>{
   const [ {rece}, ] = useStateContext();
   
@@ -58,9 +58,13 @@ const Newreceta = ()=>{
     return (
         <Page headding={form.nombre.substr(0,20) + "..."} footer="true">
            <form className="regis" >
-           <br></br>
-                
                 <br></br>
+                <div className="pp"><img src={Gordon}/></div>
+                <br></br>
+                <br></br>
+                <br></br>
+                <br></br>
+                
                 <label className="label">Descripcion:  </label>
                 <br></br>
                 <textarea type="text" className="formu" placeholder="Descripcion..." name="descripcion"value={form.descripcion} readOnly={true}></textarea>
@@ -70,13 +74,13 @@ const Newreceta = ()=>{
                 <ul>
                   {listIngre}
                 </ul>
-                <br></br>
+                
                 <label className="label">Pasos:  </label>
                 <br></br>
                 <ol>
                   {listPasos}
                 </ol>
-                <br></br>
+                
                 <label className="label">Dificultad:  </label>
                 <br></br>
                 <input type="text" className="formu" placeholder="dificultad" name="dificultad"value={form.dificultad} readOnly={true}></input>
