@@ -10,7 +10,7 @@ const Page = ( { children,headding, footer } )=>{
       let cssStylesContent = {
         "minHeight": (hofset > 0) ? `calc(100vh - ${hofset}px)` : `100%`,
       }
-      console.log(cssStyles);
+      
   return(
     <section className="page">
         {(headding && true ? (<Header>{headding}</Header>) : null)}

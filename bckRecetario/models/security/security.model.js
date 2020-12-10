@@ -17,7 +17,8 @@ class SeguridadModel {
     )
   }
   async addUsuario( data ) {
-    const {email, password,nombre,usuario,fechan,pais} = data;
+    const { email, password , nombre, usuario, pais } = data;
+    console.log(email,password,nombre,usuario,pais);
     var today = new Date();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     try {
@@ -25,9 +26,8 @@ class SeguridadModel {
         "email": email,
         "nombre": nombre,
         "usuario":usuario,
-         "fechan":fechan,
-         "pais":pais,
-         "fechaingreso":date,
+        "pais":pais,
+        "fechaingreso":date,
         "password": bcrypt.hashSync(password, 10),
         "lastlogin": 0,
         "lastpwdchg": 0,

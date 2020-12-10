@@ -14,9 +14,9 @@ class UsuariosModel{
       });
     }
     //Por ID
-    async getById(id){
+    async getById(_id){
       try{
-        const _id = new ObjectID(id);
+        _id=ObjectID(_id);
         let oneDoc = await this.collection.findOne({_id});
         return oneDoc;
       }catch(ex){

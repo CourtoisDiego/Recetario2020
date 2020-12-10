@@ -14,9 +14,9 @@ router.get('/facet/:page/:items', async (req, res) => {
   }
 });
 //Recetas por usuario
-router.get('/user/facet/:page/:items', async (req, res) => {
+router.get('/user/facet/:page/:items/:_id', async (req, res) => {
   try {
-    const {_id} = req.user;
+    const {_id} = req.params;
     const {page, items} = req.params;
     const rslt = await mdbRecetasModel.getFacetId(Number(page), Number(items), '',_id);
     res.status(200).json(rslt);
