@@ -73,6 +73,9 @@ const Newreceta = ()=>{
                 <Button variant="warning" className="btningre" onClick={onClick} >Registrar</Button>
                 
            </form>
+           <br></br>
+           <br/>
+           <br></br>
         </Page>
     );
 }

@@ -3,6 +3,19 @@ let router = express.Router();
 
 const RecetasModelClass = require('../../models/recetas.model');
 const mdbRecetasModel = new RecetasModelClass();
+//Recetas by ID de usuario
+router.get('/facet/:_id', async (req, res) => {
+  try {
+    console.log("Si funciona hasta aca");
+    const {_id} = req.params;
+    const rslt = await mdbRecetasModel.getFacetById( _id);
+    res.status(200).json(rslt);
+  } catch (ex) {
+    console.log(ex);
+    res.status(500).json({ "msg": "Algo Paso Mal." });
+  }
+});
+
 router.get('/facet/:page/:items', async (req, res) => {
   try {
     const {page, items} = req.params;
@@ -14,7 +27,7 @@ router.get('/facet/:page/:items', async (req, res) => {
   }
 });
 
-router.get('/facet/:page/:items/:search', async (req, res) => {
+router.get('/facet/text/:page/:items/:search', async (req, res) => {
   try {
     const { page, items, search } = req.params;
     const rslt = await mdbRecetasModel.getFacet(Number(page), Number(items), search);

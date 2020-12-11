@@ -31,7 +31,17 @@ class RecetasModel{
         throw (ex);
       }
     }
-
+    //Recetas por  ID de usuario
+    async getFacetById(_id){
+      try{
+        const filter = {"usuario._id":ObjectID(_id)};;
+        let cursor = await this.collection.find(filter);
+        let rslt = await cursor.toArray();
+        return { rslt};
+      }catch(ex){
+        throw (ex);
+      }
+    }
     async GetById(id) {
       try{
         const _id = new ObjectID(id);

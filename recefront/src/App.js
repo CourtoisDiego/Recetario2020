@@ -14,7 +14,7 @@ import Login from '../src/commons/public/login'
 import Registro from './commons/public/registro'
 import Home from './commons/private/home'
 import NewReceta from './commons/private/NReceta'
-import Usuario from './commons/private/usuario'
+import Usuario from './commons/private/Luser'
 import Buscar from './commons/private/buscar'
 import UnaReceta from './commons/private/UnaReceta'
 import NotFound from './commons/public/NotFound';

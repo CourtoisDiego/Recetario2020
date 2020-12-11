@@ -62,7 +62,9 @@ const Newreceta = ()=>{
                 <br></br>
                 <Button variant="warning" className="btningre" onClick={(e) => { setRedirect("/login") }}>Regresar</Button>
             </form>
-            
+            <br></br>
+            <br/>
+            <br></br>
         </Page>
     );
 }

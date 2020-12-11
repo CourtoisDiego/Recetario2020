@@ -14,9 +14,10 @@ const Perfil = ()=>{
         })
    return (
        
-        <ul className="viewPerfil">
+        <div className="viewPerfil">
         {usuarioView}
-        </ul>         
+        </div>         
+        
    );
 }
 

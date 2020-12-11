@@ -41,7 +41,7 @@ const Home = ()=>{
                 break;}
         return (<div key={o._id} className="va" onClick={() => { dispatch({ type: RECE_SET_CURRENT, payload:{_id:o._id}}); history.push("/UnaReceta");}}><img className="Pizza"src={Pizza}/>
         <div className="nombre">{o.nombre}</div>
-        <div className="descripcion">{o.descripcion}</div>
+        <div className="descripcion">{o.descripcion.substr(0,20) + "..."}</div>
         <div className="difi" style={styles}>{o.dificultad}</div>
         </div>);
             })
@@ -52,7 +52,7 @@ const Home = ()=>{
         if(!rece.fetching){
             paxios.get(
                 (!(/^\s*$/).test(rece.searchFilter))?
-                  `/api/recetas/facet/${rece.currentPage}/${rece.pageLimit}/${encodeURI(rece.searchFilter)}`
+                  `/api/recetas/facet/text/${rece.currentPage}/${rece.pageLimit}/${encodeURI(rece.searchFilter)}`
                   : `/api/recetas/facet/${rece.currentPage}/${rece.pageLimit}`)
                 .then(({data})=>{
                   dispatch({
@@ -70,6 +70,7 @@ const Home = ()=>{
               }); //end paxios
         }
     }
+    
     const scrollParentRef = useRef();
 
     return (
@@ -100,6 +101,9 @@ const Home = ()=>{
           {listElements}
         </InfiniteScroll>
       </section>
+      <br></br>
+      <br/>
+      <br></br>
             
           
            
