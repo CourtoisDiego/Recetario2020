@@ -18,7 +18,7 @@ import Usuario from './commons/private/Luser'
 import Buscar from './commons/private/buscar'
 import UnaReceta from './commons/private/UnaReceta'
 import NotFound from './commons/public/NotFound';
-
+import UsuarioAjeno from './commons/private/UserAjeno'
 
 function App() {
   let appState = mainReducer();
@@ -38,6 +38,7 @@ function App() {
             <PrivateRoute path="/" exact component={Home} />
             <PrivateRoute path="/nuevaReceta" exact component={NewReceta} />
             <PrivateRoute path="/UnaReceta" exact component={UnaReceta} />
+            <PrivateRoute path="/ThisUser" exact component={UsuarioAjeno} />
             <PrivateRoute path="/usuario" exact component={Usuario} />
             <PrivateRoute path="/buscar" exact component={Buscar} />
             <Route path="*" component={NotFound}></Route>

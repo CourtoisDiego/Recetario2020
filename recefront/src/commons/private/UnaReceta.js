@@ -8,27 +8,31 @@ import {paxios} from '../../utlts/Axios';
 import {useHistory} from "react-router-dom";
 import './NReceta.css'
 import Gordon from '../public/img/gordon.jpg'
+
+import {USER_SET_CURRENT} from '../../utlts/store/reducers/user.reducer'
 const Newreceta = ()=>{
   const [ {rece}, ] = useStateContext();
-  
+  const [ {user}, dispatch] = useStateContext();
   const [form, setForm] = useState({
     nombre:'',
     descripcion:'',
     fingre:[],
     fpasos:[],
     dificultad:'',
-    usuario:''
+    usuario:[],
+    
   });
   const history = useHistory();
     
     useEffect(
       ()=>{
-        console.log(rece);
+        
         const  id  = rece.currentId;
         paxios.get(`/api/recetas/one/${id}`)
           .then(({data})=>{
               console.log(data);
               setForm(data);
+              console.log(form.usuario._id);
           })
           .catch((ex)=>{
             console.log(ex);
@@ -43,7 +47,7 @@ const Newreceta = ()=>{
       return(
         
           
-          <li>{ingre}</li>
+          <li key={ingre}>{ingre}</li>
           
         
       )
@@ -51,7 +55,8 @@ const Newreceta = ()=>{
 
     const listPasos = form.fpasos.map((pa)=>{
       return(
-        <li>{pa}</li>
+
+        <li key={pa}>{pa}</li>
       )
     })
   
@@ -59,7 +64,7 @@ const Newreceta = ()=>{
         <Page headding={form.nombre.substr(0,20) + "..."} footer="true">
            <form className="regis" >
                 <br></br>
-                <div className="pp"><img src={Gordon}/></div>
+                <div className="pp" onClick={() => { dispatch({ type: USER_SET_CURRENT, payload:{_id:form.usuario._id}}); history.push("/ThisUser");}}><img src={Gordon}/></div>
                 <br></br>
                 <br></br>
                 <br></br>

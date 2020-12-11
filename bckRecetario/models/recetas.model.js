@@ -21,7 +21,7 @@ class RecetasModel{
         const filter = (search == '')?{}:{"$or":[{"nombre": {"$regex":searchExp,$options:"i" }} ]};
         // select * from productos where (sku like '%search%' or bane like '%search%');
 
-        let cursor = await this.collection.find(filter);
+        let cursor = await this.collection.find(filter).sort({"fechapost":-1});
         let total = await cursor.count();
         cursor.skip((page-1) * items);
         cursor.limit(items);
@@ -35,7 +35,7 @@ class RecetasModel{
     async getFacetById(_id){
       try{
         const filter = {"usuario._id":ObjectID(_id)};;
-        let cursor = await this.collection.find(filter);
+        let cursor = await this.collection.find(filter).sort({"fechapost":-1});
         let rslt = await cursor.toArray();
         return { rslt};
       }catch(ex){

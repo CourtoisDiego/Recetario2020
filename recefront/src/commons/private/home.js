@@ -14,6 +14,8 @@ import InfiniteScroll from 'react-infinite-scroller';
   <div className="difi">{o.Dificultad}</div>
   <div className="user">{o.Usuario}</div>*/
 const Home = ()=>{
+  
+  
     const[{rece},dispatch] = useStateContext();
     const history = useHistory();
     const listElements = rece.recetas.map((o)=>{
@@ -75,7 +77,7 @@ const Home = ()=>{
 
     return (
         
-        <Page headding="Recetario" footer="true">
+        <Page headding="Inicio" footer="true">
         <section className="productoList" ref={scrollParentRef}>
             
             <br></br>

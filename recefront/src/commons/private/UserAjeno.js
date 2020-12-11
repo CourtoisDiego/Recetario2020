@@ -1,6 +1,6 @@
 import Page from '../commons/page'
-import GetRecetas from '../private/getRecetas'
-import Perfil from '../private/perfil'
+import GetRecetas from './getRecetas'
+import Perfil from './perfil'
 import {useStateContext} from '../../utlts/Context'
 import Gordon from '../public/img/gordon.jpg'
 import {paxios} from '../../utlts/Axios';
@@ -14,6 +14,7 @@ import Pizza from '../public/img/screen-4.jpg'
 import InfiniteScroll from 'react-infinite-scroller';
 import './perfil.css'
 const LocalUser = ()=>{
+    const [{user},] = useStateContext();
     const [{auth},] = useStateContext();
     const [{rece},dispatch]= useStateContext();
     const [localrece,setLocalRece]=useState({
@@ -27,7 +28,7 @@ const LocalUser = ()=>{
         pais:'',
       });
       useEffect(()=>{
-        paxios.get(`/api/usuarios/profile/${auth.user._id}`)
+        paxios.get(`/api/usuarios/profile/${user.currentId}`)
       .then(({data})=>{
           console.log(data);
           setForm(data);
@@ -38,7 +39,7 @@ const LocalUser = ()=>{
         history.push("/");
       });
       //Get recetas
-      paxios.get(`/api/recetas/facet/${auth.user._id}`)
+      paxios.get(`/api/recetas/facet/${user.currentId}`)
       .then(({data})=>{
           console.log(data);
           setLocalRece(data);

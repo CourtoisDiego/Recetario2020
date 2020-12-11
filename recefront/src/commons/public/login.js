@@ -37,7 +37,7 @@ const  Login=()=>{
       [name]:value,
     });
   }
-  let { from } = location.state || { from: { pathname: "/usuario" } };
+  let { from } = location.state || { from: { pathname: "/" } };
   const onLogin = (e) =>{
     const {email,password} = form;
     //ACA VA AXIOS

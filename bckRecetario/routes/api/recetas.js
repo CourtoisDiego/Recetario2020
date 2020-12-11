@@ -88,8 +88,8 @@ router.get('/all', async (req, res)=>{
 //Nueva receta
 router.post('/new', async (req, res)=>{
     try{
-        var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      var today = new Date();
+      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+' '+today.getHours()+':'+today.getMinutes()+':'+today.getSeconds();
       let{_id,email} = req.user;
       let {nombre,descripcion,ingredientes,pasos,dificultad} = req.body;
       let fingre = ingredientes.split("*");
