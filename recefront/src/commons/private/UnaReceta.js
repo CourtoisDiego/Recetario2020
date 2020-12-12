@@ -89,7 +89,9 @@ const Newreceta = ()=>{
                 <label className="label">Dificultad:  </label>
                 <br></br>
                 <input type="text" className="formu" placeholder="dificultad" name="dificultad"value={form.dificultad} readOnly={true}></input>
-                
+                <br></br>
+                <br></br>
+                <br></br>
                 
                 
            </form>
