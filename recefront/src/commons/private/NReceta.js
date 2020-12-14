@@ -6,7 +6,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Redirect} from 'react-router-dom';
 import {paxios} from '../../utlts/Axios';
 import './NReceta.css'
+import {useHistory} from "react-router-dom";
 const Newreceta = ()=>{
+  const history = useHistory();
   let [redirect, setRedirect] = useState("");
   const [form, setForm] = useState({
     nombre:'',
@@ -28,7 +30,8 @@ const Newreceta = ()=>{
       ).then(({data})=>{
         console.log({data});
         alert("Guardado Correctamente");
-        setRedirect("/");
+        history.push("/usuario");
+        
       }).catch((err)=>{
         console.log(err);
       })
