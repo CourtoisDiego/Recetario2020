@@ -32,9 +32,9 @@ const Nav = ()=>{
         <footer>
             <nav>
                 <ul >
-                    <li><NavLink to="/" className="navlink"><FontAwesomeIcon icon={faHome} /></NavLink></li>
-                    <li><NavLink to="/nuevaReceta" className="navlink"><FontAwesomeIcon icon={faPlusCircle}/></NavLink></li>
-                    <li><NavLink to="/usuario" className="navlink"><FontAwesomeIcon icon={faUser} /></NavLink></li>
+                    <li onClick={()=>{history.push("/")}}><FontAwesomeIcon icon={faHome} /></li>
+                    <li onClick={()=>{history.push("/nuevaReceta")}}><FontAwesomeIcon icon={faPlusCircle}/></li>
+                    <li onClick={()=>{history.push("/usuario")}}><FontAwesomeIcon icon={faUser} /></li>
                     <li><FontAwesomeIcon icon={faDoorOpen} onClick={logout}/></li>
                     
 
