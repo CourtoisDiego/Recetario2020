@@ -39,4 +39,18 @@
       float: left;
       position: relative;
     }
-   
+    .equis{
+        background-color: tomato;
+        border-radius: 50%;
+        float: right;
+        position: relative;
+        width: 25px;
+    }
+   .ediper{
+       background-color: teal;
+       border-radius: 20px;
+       text-align: center;
+       width: 30%;
+       position: relative;
+       margin-left: 20px;
+   }

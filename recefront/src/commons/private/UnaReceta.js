@@ -32,7 +32,7 @@ const Newreceta = ()=>{
           .then(({data})=>{
               console.log(data);
               setForm(data);
-              console.log(form.usuario._id);
+              
           })
           .catch((ex)=>{
             console.log(ex);

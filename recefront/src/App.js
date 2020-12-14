@@ -19,6 +19,7 @@ import Buscar from './commons/private/buscar'
 import UnaReceta from './commons/private/UnaReceta'
 import NotFound from './commons/public/NotFound';
 import UsuarioAjeno from './commons/private/UserAjeno'
+import EditUser from './commons/private/edituser'
 
 function App() {
   let appState = mainReducer();
@@ -41,6 +42,7 @@ function App() {
             <PrivateRoute path="/ThisUser" exact component={UsuarioAjeno} />
             <PrivateRoute path="/usuario" exact component={Usuario} />
             <PrivateRoute path="/buscar" exact component={Buscar} />
+            <PrivateRoute path="/EditUser" exact component={EditUser} />
             <Route path="*" component={NotFound}></Route>
           </AnimatedSwitch>
           </Splash>
